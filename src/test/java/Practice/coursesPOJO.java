@@ -1,4 +1,6 @@
-import java.util.List;
+
+package Practice;
+import java.util.*;
 
 public class coursesPOJO {
     private apiPOJO apiPOJO;

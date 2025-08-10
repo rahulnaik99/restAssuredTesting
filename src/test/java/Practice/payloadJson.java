@@ -1,3 +1,4 @@
+package Practice; 
 public class payloadJson {
     public static String addPlace() {
         return "{\n" +

@@ -1,4 +1,5 @@
-public class apiPOJO {
+ package Practice;
+ public class apiPOJO {
     private String courseTitle,prices;
 
     public String getCourseTitle() {

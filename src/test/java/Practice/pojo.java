@@ -1,3 +1,4 @@
+package Practice;
 public class pojo {
     private String url,services,expertise,instruction,linkdien;
     private coursesPOJO coursesPOJO;

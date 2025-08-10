@@ -1,3 +1,5 @@
+
+package Practice;
 public class mobilePOJO {
     private String courseTitle,prices;
 

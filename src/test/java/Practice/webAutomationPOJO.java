@@ -1,3 +1,4 @@
+package Practice;
 public class webAutomationPOJO {
     private String courseTitle,prices;
 

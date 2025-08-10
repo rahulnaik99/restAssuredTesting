@@ -1,5 +1,8 @@
+package Practice;
 import io.restassured.path.json.JsonPath;
 import org.testng.annotations.Test;
+
+import commonMethods.commonMethods;
 import io.restassured.RestAssured;
 
 import java.io.File;
