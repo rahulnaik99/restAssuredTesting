@@ -4,13 +4,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.testng.annotations.Test;
+import org.junit.Test;
+
+import POJO.mapPOJO.*;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import mapPOJO.*; // Add this import if placePOJO is in specBuilder package
 public class googleMapWithSpecBuilder {
 
     @Test()

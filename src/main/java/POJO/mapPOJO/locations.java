@@ -1,4 +1,4 @@
-package mapPOJO;
+package POJO.mapPOJO;
 
 public class locations {
     private double lat;

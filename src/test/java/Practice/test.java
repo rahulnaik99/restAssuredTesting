@@ -1,6 +1,5 @@
 package Practice;
 import io.restassured.path.json.JsonPath;
-import org.testng.annotations.Test;
 
 import commonMethods.commonMethods;
 import io.restassured.RestAssured;
@@ -9,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+import org.junit.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 

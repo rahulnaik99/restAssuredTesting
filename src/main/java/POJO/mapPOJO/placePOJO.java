@@ -1,4 +1,4 @@
-package mapPOJO;
+package POJO.mapPOJO;
 import java.util.*;
 public class placePOJO {
     private int accuracy;

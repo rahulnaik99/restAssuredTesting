@@ -1,15 +1,16 @@
 package Course_POJO;
 
 import io.restassured.RestAssured;
-import org.testng.annotations.Test;
+// import org.testng.annotations.Test;
 
 import commonMethods.commonMethods;
-
 
 import static io.restassured.RestAssured.given;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import org.junit.Test;
 
 public class oAuth {
     @Test()

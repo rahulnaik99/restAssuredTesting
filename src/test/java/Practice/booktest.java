@@ -1,11 +1,10 @@
 package Practice;
 import io.restassured.RestAssured;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+// import org.testng.annotations.DataProvider;
 import static io.restassured.RestAssured.given;
-
+import org.junit.Test;
 public class booktest {
-    @Test(dataProvider = "booksData")
+    // @Test(dataProvider = "booksData")
     public void addBook(String isbn,String aisle){
         RestAssured.baseURI = "http://216.10.245.166";
        String response;
@@ -16,7 +15,7 @@ public class booktest {
         System.out.println(response);
     }
 
-    @Test(dataProvider = "booksData")
+    // @Test(d/ataProvider = "booksData")
     public void deleteBook(String isb,String asile){
        String reponse =given().queryParam("Content-Type","application/json").
                body(payloadJson.delBook("theju2299")).
@@ -24,7 +23,7 @@ public class booktest {
                then().extract().response().asString();
         System.out.println(reponse);
     }
-    @DataProvider(name="booksData")
+    // @DataProvider(name="booksData")
     public Object[][] getData(){
         return new Object[][] {{"rahul","1812"},{"theju","2299"},{"roshani","1012"}};
     }
