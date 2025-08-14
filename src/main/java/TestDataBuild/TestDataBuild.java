@@ -28,4 +28,8 @@ public class TestDataBuild
         return map;
     }
 
+    public String deletePayload(String placeId){
+        return "{\"place_id\":\""+placeId+"\"}";
+    }
+
 }

@@ -16,16 +16,20 @@ import utils.utils;
 
 
 public class PlaceSteps extends utils{
-     Response response;
-     ResponseSpecification resBuilder;
-     RequestSpecification request;
+     static Response response;
+     ResponseSpecification responseBuilder;
+     static RequestSpecification requestBuilder;
      TestDataBuild Testdata = new TestDataBuild();
+     static String place_id;
+     JsonPath jsonPath;
+
+
 @Given("Add Place with {string}, {string} and {string} Payload")
 public void add_place_payload(String name, String language, String address) throws NullPointerException, IOException {
      
-        request = given().spec(getRequestBuilder()).
+        requestBuilder = given().spec(getRequestBuilder()).
         body(Testdata.add_place_payload(name,language,address));
-    
+        
 }
 @When("User calls {string} request {string} HTTPS Request")
 public Response user_calls_request_post_https_request(String httpsMethod,String methodType) {
@@ -33,13 +37,17 @@ public Response user_calls_request_post_https_request(String httpsMethod,String 
         getAPIPath apiPath= getAPIPath.valueOf(httpsMethod);
 
         if (methodType.equalsIgnoreCase("POST")) {
-                return response = request.when().post(apiPath.getResourse());
+                response = requestBuilder.when().post(apiPath.getResourse());
+                jsonPath = new JsonPath(response.asString());
+                place_id=jsonPath.getString("place_id");
+                return response;
         }
         else if (methodType.equalsIgnoreCase("GET")) {
-                return response = request.when().get(apiPath.getResourse());
+                return response = requestBuilder.when().get(apiPath.getResourse());
+
         }
         else if (methodType.equalsIgnoreCase("DELETE")) {
-                return response = request.when().delete(apiPath.getResourse());
+                return response = requestBuilder.when().delete(apiPath.getResourse());
           }
         return response;
         
@@ -53,21 +61,23 @@ public void the_api_call_got_sucess_with_status_code(int status) {
 
 @Then("the response body contains {string} as {string}")
 public void user_calls_with_http_request(String key, String value) {
-   String resp = response.asString();
-   JsonPath jsonPath = new JsonPath(resp);
-    String actualValue = jsonPath.getString(key);  
-    assertEquals(value,actualValue);
-
+        jsonPath = new JsonPath(response.asString());
+        assertEquals(value,jsonPath.getString(key));
 }
 @Then("Verify Place_Id created maps to {string} using {string}")
 public void verify_place_id_created_maps_to_using(String name, String methodType) throws NullPointerException, IOException {
       
-    request = given().spec(request).queryParam("place_id", getJsonPath(response, "place_id")); 
-    user_calls_request_post_https_request(methodType,"GET");
+    requestBuilder = given().spec(requestBuilder).queryParam("place_id", getJsonPath(response, "place_id")); 
+    response= user_calls_request_post_https_request(methodType,"GET");
     assertEquals(getJsonPath(response, "name"),name);
-      
+
+
 
 }
 
+@Given("Deleteplace Payload")
+public void deleteplace_payload() {
+requestBuilder = given().spec(reqBuilder).body(Testdata.deletePayload(place_id));
 
+}
 }

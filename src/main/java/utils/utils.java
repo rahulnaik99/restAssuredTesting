@@ -6,9 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Properties;
-
-import com.fasterxml.jackson.core.JsonParseException;
-
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
@@ -18,9 +15,8 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class utils {
-    protected RequestSpecification reqBuilder;
-
-    public RequestSpecification  getRequestBuilder() throws NullPointerException, IOException {
+    protected static RequestSpecification reqBuilder;
+    public static RequestSpecification  getRequestBuilder() throws NullPointerException, IOException {
 
         if(reqBuilder == null) {
                 PrintStream log = new PrintStream(new FileOutputStream("target/Logging.txt"));
