@@ -12,7 +12,7 @@ Scenario Outline: Validate Add Place Functionality
 Examples:  
          | name   | Language | address |
          | Rahul  | Java     | India   |
-         |Roshani | Python   | USA     |
+         |Roshani | Python   | USAIN   |
          |Theju   | SQL      | India   |
 @deletePlace
 Scenario: Delete Place Functionality validation
