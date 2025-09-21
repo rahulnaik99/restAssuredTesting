@@ -13,6 +13,7 @@ Examples:
          | name   | Language | address |
          | Rahul  | Java     | India   |
          |Roshani | Python   | USA     |
+         |Theju   | SQL      | India   |
 @deletePlace
 Scenario: Delete Place Functionality validation
  Given Deleteplace Payload
