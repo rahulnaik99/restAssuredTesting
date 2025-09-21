@@ -1,3 +1,4 @@
+@endtoend
 Feature: Validate Add Place Functionality 
 @addPlace
 Scenario Outline: Validate Add Place Functionality 
