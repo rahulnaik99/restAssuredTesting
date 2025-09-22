@@ -25,12 +25,12 @@ pipeline {
 
         stage('Parallel Tests') {
             parallel {
-                stage('Unit Tests') {
+                stage('AddPlace Tests') {
                     steps {
                         sh 'mvn test -Dcucumber.filter.tags="@addPlace"'
                     }
                 }
-                stage('Integration Tests') {
+                stage('DeletePlace Tests') {
                     steps {
                         sh 'mvn test -Dcucumber.filter.tags="@deletePlace"'
                     }
@@ -46,7 +46,7 @@ pipeline {
 
         stage('Archive Reports') {
             steps {
-                archiveArtifacts artifacts: 'target/*.html', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'target/cucumber-html-reports/*.html', allowEmptyArchive: true
                 junit 'target/surefire-reports/*.xml'
             }
         }
