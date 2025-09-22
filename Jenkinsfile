@@ -27,12 +27,12 @@ pipeline {
             parallel {
                 stage('Unit Tests') {
                     steps {
-                        sh 'mvn test -Dgroups=unit'
+                        sh 'mvn test -Dcucumber.filter.tags="@addPlace"'
                     }
                 }
                 stage('Integration Tests') {
                     steps {
-                        sh 'mvn test -Dgroups=integration'
+                        sh 'mvn test -Dcucumber.filter.tags="@deletePlace"'
                     }
                 }
             }
